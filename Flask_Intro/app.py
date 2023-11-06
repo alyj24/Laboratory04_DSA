@@ -26,6 +26,15 @@ def works2():
         result = 3.14 * (float(input_radius) ** 2)
     return render_template('circular_area.html', result=result)
 
+@app.route('/areaOfTriangle', methods=['GET', 'POST'])
+def works3():
+    result = None
+    if request.method == 'POST':
+        input_base = request.form.get('base', '')
+        input_height = request.form.get('height', '')
+        result = 0.5 * float(input_base) * float(input_height)
+    return render_template('triangular_area.html', result=result)
+
 @app.route('/contact')
 def contact():
     return "Contact Page. please create me an html page with dummy contact info"
