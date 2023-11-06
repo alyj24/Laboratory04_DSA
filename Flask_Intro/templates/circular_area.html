@@ -6,13 +6,15 @@
 </head>
 <body>
     <h1>Circular Area Generator</h1>
-    
+
     <form action="/areaOfcirle" method="post">
         <label for="input_number">Enter a value:</label>
         <input type="text" id="input_number" name="value">
         <input type="submit" value="Calculate">
     </form>
 
-
+    {% if result %}
+    <p>Circular Area: {{ result }}</p>
+    {% endif %}
 </body>
 </html>
