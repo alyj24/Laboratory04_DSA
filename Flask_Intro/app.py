@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+     return render_template('index.html')
 
 @app.route('/profile')
 def profile():
@@ -35,9 +35,15 @@ def works3():
         result = 0.5 * float(input_base) * float(input_height)
     return render_template('triangular_area.html', result=result)
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return "Contact Page. please create me an html page with dummy contact info"
+    if request.method == 'POST':
+        name = request.form.get('name', '')
+        email = request.form.get('email', '')
+        message = request.form.get('message', '')
+        # Process the form data as needed (e.g., send email, store in a database, etc.)
+    return render_template('contact.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)

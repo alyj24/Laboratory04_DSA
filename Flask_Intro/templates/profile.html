@@ -1,11 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Profile Page</title>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        body {
+            background: url('background_sky.png') center/cover no-repeat;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(225, 180, 220, 0.8);
+            border-radius: 14px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            opacity: 0;
+            transform: scale(0);
+            animation: fadeInScale 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #070854;
+            margin-bottom: 5px;
+            font-size: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            text-align: left;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #38078A;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        textarea {
+            width: 95%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background-color: #B4B4FD;
+            color: #333;
+            border-radius: 5px;
+            border-bottom: 2px solid #6A56FF;
+            transition: background-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            background-color: #8A5007;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to your Profile Page</h1>
-    <p>This is a simple profile page rendered using Flask's templating.</p>
-    <p>Create your profile here with Name, section , course, subject and display your favorite sayings or motto! using html tags </p>
+    <div class="container">
+        <img src="charl.jpg" alt="Profile Picture" class="profile-picture">
+        <h1>Profile</h1>
+        <form action="/Profile" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="Charl B. Albon" readonly>
+            </div>
+            <div class="form-group">
+                <label for="section">Section:</label>
+                <input type="text" id="section" name="section" value="BSCPE 2-4" readonly>
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" value="Bachelor of Science in Computer Engineering" readonly>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" value="Data Structures and Algorithms" readonly>
+            </div>
+            <div class="form-group">
+                <label for="motto">Favorite Motto:</label>
+                <input type="text" id="motto" name="motto" value='"Live your life like there is no tomorrow"' readonly>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
+
