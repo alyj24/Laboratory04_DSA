@@ -3,8 +3,7 @@
 A Website(HTML) render by Flask using Python as IDE.
 ```
 # Preview
-<<<<<<< HEAD
-=======
+
 Home Page
 
 https://github.com/alyj24/Laboratory04_DSA/assets/129832127/6af1ff9b-1686-4e12-a9f6-febd4cfbd266
@@ -28,7 +27,7 @@ https://github.com/alyj24/Laboratory04_DSA/assets/129832127/b3315a2d-6687-4ed6-a
 Area of a Triangle
 
 https://github.com/alyj24/Laboratory04_DSA/assets/129832127/46c8d721-abac-45be-82d8-df93848dfe0f
->>>>>>> 3aa0a20e43ea53655da1d439006e78a48e94cb6a
+
 
 # About the Program
 This program has a profile, contact us page and works that we must be able to work such as a string converting to uppercase, finder of area of a circle and triangle.
