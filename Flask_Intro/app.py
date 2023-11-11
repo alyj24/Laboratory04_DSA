@@ -1,33 +1,33 @@
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 @app.route('/')
 def index():
-     return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
 
-@app.route('/works', methods=['GET', 'POST'])
-def works1():
+@app.route('/toUpperCase', methods=['GET', 'POST'])
+def toUpperCase():
     result = None
     if request.method == 'POST':
         input_string = request.form.get('inputString', '')
         result = input_string.upper()
     return render_template('touppercase.html', result=result)
 
-@app.route('/areaOfcirle', methods=['GET', 'POST'])
-def works2():
+@app.route('/areaofcirle', methods=['GET', 'POST'])
+def areaofcircle():
     result = None
     if request.method == 'POST':
         input_radius = request.form.get('value', '')
         result = 3.14 * (float(input_radius) ** 2)
     return render_template('circular_area.html', result=result)
 
-@app.route('/areaOfTriangle', methods=['GET', 'POST'])
-def works3():
+@app.route('/areaoftriangle', methods=['GET', 'POST'])
+def areaoftriangle():
     result = None
     if request.method == 'POST':
         input_base = request.form.get('base', '')
@@ -41,7 +41,6 @@ def contact():
         name = request.form.get('name', '')
         email = request.form.get('email', '')
         message = request.form.get('message', '')
-        # Process the form data as needed (e.g., send email, store in a database, etc.)
     return render_template('contact.html')
 
 

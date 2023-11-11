@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Triangular Generator</title>
+    <title>Area of a Triangle</title>
     <style>
         body {
-            background: url('background_sky.png') center/cover no-repeat;
+            background: url('static/purple_sky.png') center/cover no-repeat;
             color: #fff;
             font-family: 'Arial', sans-serif;
             display: flex;
@@ -113,11 +113,12 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Triangular Area Generator</h1>
 
-        <form action="/areaOfTrianagle" onsubmit="showResult(); return false;">
+        <form action="/areaoftriangle" method="post">
             <div class="form-group">
                 <label for="input_base">Enter a base:</label>
                 <input type="text" id="input_base" name="base"><br><br>
@@ -130,16 +131,22 @@
         </form>
 
         <div class="result-section" id="resultSection">
-            <p class="result-text">Triangular Area: <span id="resultValue"></span></p>
+            {% if result %}
+            <p class="result-text">Triangular Area: <span id="resultValue">{{ result }}</span></p>
+            {% endif %}
         </div>
     </div>
 
     <script>
-            resultValue = result;
+        {% if result %}
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('resultValue').textContent = '{{ result }}';
+        });
+        {% endif %}
     </script>
 </body>
-</html>
 
+</html>
 
 
 
